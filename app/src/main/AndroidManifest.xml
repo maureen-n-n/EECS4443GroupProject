@@ -10,6 +10,8 @@
         android:allowBackup="false"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name">
+
+        <!-- VOWEL INTRO ACTIVITY -->
         <activity
             android:name="ca.yorku.eecs.mack.groupproject.Vowel_Intro"
             android:exported="true" >
@@ -19,6 +21,13 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
+
+        <!-- K- INTRO ACTIVITY -->
+        <activity
+            android:name="ca.yorku.eecs.mack.groupproject.K_Intro"
+            android:exported="true" >
+        </activity>
+
     </application>
 
 </manifest>
