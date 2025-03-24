@@ -10,38 +10,49 @@
 10
 11    <!-- NOTE: minSdkVersion and targetSdkVersion specified in build.gradle -->
 12    <application
-12-->C:\Users\16472\Downloads\EECS4443\GroupProject\app\src\main\AndroidManifest.xml:8:5-22:19
+12-->C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\main\AndroidManifest.xml:8:5-31:19
 13        android:allowBackup="false"
-13-->C:\Users\16472\Downloads\EECS4443\GroupProject\app\src\main\AndroidManifest.xml:10:9-36
+13-->C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\main\AndroidManifest.xml:10:9-36
 14        android:debuggable="true"
 15        android:extractNativeLibs="true"
 16        android:icon="@mipmap/ic_launcher"
-16-->C:\Users\16472\Downloads\EECS4443\GroupProject\app\src\main\AndroidManifest.xml:11:9-43
+16-->C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\main\AndroidManifest.xml:11:9-43
 17        android:label="@string/app_name"
-17-->C:\Users\16472\Downloads\EECS4443\GroupProject\app\src\main\AndroidManifest.xml:12:9-41
+17-->C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\main\AndroidManifest.xml:12:9-41
 18        android:testOnly="true"
 19        android:theme="@android:style/Theme.Holo" >
-19-->C:\Users\16472\Downloads\EECS4443\GroupProject\app\src\main\AndroidManifest.xml:9:9-50
-20        <activity
-20-->C:\Users\16472\Downloads\EECS4443\GroupProject\app\src\main\AndroidManifest.xml:13:9-21:20
-21            android:name="ca.yorku.eecs.mack.groupproject.Vowel_Intro"
-21-->C:\Users\16472\Downloads\EECS4443\GroupProject\app\src\main\AndroidManifest.xml:14:13-71
-22            android:exported="true" >
-22-->C:\Users\16472\Downloads\EECS4443\GroupProject\app\src\main\AndroidManifest.xml:15:13-36
-23            <intent-filter>
-23-->C:\Users\16472\Downloads\EECS4443\GroupProject\app\src\main\AndroidManifest.xml:16:13-20:29
-24                <action android:name="android.intent.action.MAIN" />
-24-->C:\Users\16472\Downloads\EECS4443\GroupProject\app\src\main\AndroidManifest.xml:17:17-68
-24-->C:\Users\16472\Downloads\EECS4443\GroupProject\app\src\main\AndroidManifest.xml:17:25-66
-25                <action android:name="android.intent.action.VIEW" />
-25-->C:\Users\16472\Downloads\EECS4443\GroupProject\app\src\main\AndroidManifest.xml:18:17-68
-25-->C:\Users\16472\Downloads\EECS4443\GroupProject\app\src\main\AndroidManifest.xml:18:25-66
-26
-27                <category android:name="android.intent.category.LAUNCHER" />
-27-->C:\Users\16472\Downloads\EECS4443\GroupProject\app\src\main\AndroidManifest.xml:19:17-76
-27-->C:\Users\16472\Downloads\EECS4443\GroupProject\app\src\main\AndroidManifest.xml:19:27-74
-28            </intent-filter>
-29        </activity>
-30    </application>
-31
-32</manifest>
+19-->C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\main\AndroidManifest.xml:9:9-50
+20
+21        <!-- VOWEL INTRO ACTIVITY -->
+22        <activity
+22-->C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\main\AndroidManifest.xml:15:9-23:20
+23            android:name="ca.yorku.eecs.mack.groupproject.Vowel_Intro"
+23-->C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\main\AndroidManifest.xml:16:13-71
+24            android:exported="true" >
+24-->C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\main\AndroidManifest.xml:17:13-36
+25            <intent-filter>
+25-->C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\main\AndroidManifest.xml:18:13-22:29
+26                <action android:name="android.intent.action.MAIN" />
+26-->C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\main\AndroidManifest.xml:19:17-68
+26-->C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\main\AndroidManifest.xml:19:25-66
+27                <action android:name="android.intent.action.VIEW" />
+27-->C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\main\AndroidManifest.xml:20:17-68
+27-->C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\main\AndroidManifest.xml:20:25-66
+28
+29                <category android:name="android.intent.category.LAUNCHER" />
+29-->C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\main\AndroidManifest.xml:21:17-76
+29-->C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\main\AndroidManifest.xml:21:27-74
+30            </intent-filter>
+31        </activity>
+32
+33        <!-- K- INTRO ACTIVITY -->
+34        <activity
+34-->C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\main\AndroidManifest.xml:26:9-29:20
+35            android:name="ca.yorku.eecs.mack.groupproject.K_Intro"
+35-->C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\main\AndroidManifest.xml:27:13-67
+36            android:exported="true" >
+36-->C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\main\AndroidManifest.xml:28:13-36
+37        </activity>
+38    </application>
+39
+40</manifest>

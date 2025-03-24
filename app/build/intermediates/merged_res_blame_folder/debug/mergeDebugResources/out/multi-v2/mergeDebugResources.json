@@ -4,13 +4,28 @@
             "outputFile": "ca.yorku.eecs.mack.groupproject.app-debug-4:/values_values.arsc.flat",
             "map": [
                 {
-                    "source": "C:\\Users\\16472\\Downloads\\EECS4443\\GroupProject\\app\\src\\main\\res\\values\\ic_launcher_background.xml",
+                    "source": "C:\\Users\\16472\\Documents\\GitHub\\EECS4443GroupProject\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "2",
                         "startColumns": "4",
-                        "startOffsets": "57",
-                        "endColumns": "56",
-                        "endOffsets": "109"
+                        "startOffsets": "55",
+                        "endColumns": "67",
+                        "endOffsets": "118"
+                    },
+                    "to": {
+                        "startLines": "3",
+                        "startColumns": "4",
+                        "startOffsets": "112",
+                        "endColumns": "67",
+                        "endOffsets": "175"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\16472\\Documents\\GitHub\\EECS4443GroupProject\\app\\src\\main\\res\\values\\ic_launcher_background.xml",
+                    "from": {
+                        "startLines": "-1",
+                        "startColumns": "-1",
+                        "startOffsets": "-1"
                     },
                     "to": {
                         "startLines": "2",
@@ -19,9 +34,14 @@
                         "endColumns": "56",
                         "endOffsets": "107"
                     }
-                },
+                }
+            ]
+        },
+        {
+            "outputFile": "C:\\Users\\16472\\.gradle\\daemon\\8.10.2\\ca.yorku.eecs.mack.groupproject.app-debug-4:\\values_values.arsc.flat",
+            "map": [
                 {
-                    "source": "C:\\Users\\16472\\Downloads\\EECS4443\\GroupProject\\app\\src\\main\\res\\values\\strings.xml",
+                    "source": "C:\\Users\\16472\\Documents\\GitHub\\EECS4443GroupProject\\app\\src\\main\\res\\values\\strings.xml",
                     "from": {
                         "startLines": "6,3,5,7,4,2",
                         "startColumns": "4,4,4,4,4,4",
@@ -35,6 +55,23 @@
                         "startOffsets": "112,162,206,254,292,340",
                         "endColumns": "49,43,47,37,47,68",
                         "endOffsets": "157,201,249,287,335,404"
+                    }
+                },
+                {
+                    "source": "C:\\Users\\16472\\Documents\\GitHub\\EECS4443GroupProject\\app\\src\\main\\res\\values\\ic_launcher_background.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "57",
+                        "endColumns": "56",
+                        "endOffsets": "109"
+                    },
+                    "to": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "56",
+                        "endOffsets": "107"
                     }
                 }
             ]

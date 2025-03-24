@@ -28,6 +28,18 @@
             android:exported="true" >
         </activity>
 
+        <!-- M- INTRO ACTIVITY -->
+        <activity
+            android:name="ca.yorku.eecs.mack.groupproject.M_Intro"
+            android:exported="true" >
+        </activity>
+
+        <!-- R- INTRO ACTIVITY -->
+        <activity
+            android:name="ca.yorku.eecs.mack.groupproject.R_Intro"
+            android:exported="true" >
+        </activity>
+
     </application>
 
 </manifest>

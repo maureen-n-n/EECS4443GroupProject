@@ -22,7 +22,7 @@ public class Vowel_Intro extends Activity implements OnClickListener {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
+        setContentView(R.layout.vowel_intro);
         // Initialize the activity by setting up buttons and the asset manager
         initialize();
         assetManager = getAssets();

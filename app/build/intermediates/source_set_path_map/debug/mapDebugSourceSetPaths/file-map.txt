@@ -1,7 +1,7 @@
-ca.yorku.eecs.mack.groupproject.app-pngs-0 C:\Users\16472\Downloads\EECS4443\GroupProject\app\build\generated\res\pngs\debug
-ca.yorku.eecs.mack.groupproject.app-resValues-1 C:\Users\16472\Downloads\EECS4443\GroupProject\app\build\generated\res\resValues\debug
-ca.yorku.eecs.mack.groupproject.app-mergeDebugResources-2 C:\Users\16472\Downloads\EECS4443\GroupProject\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir
-ca.yorku.eecs.mack.groupproject.app-mergeDebugResources-3 C:\Users\16472\Downloads\EECS4443\GroupProject\app\build\intermediates\incremental\debug\mergeDebugResources\stripped.dir
-ca.yorku.eecs.mack.groupproject.app-debug-4 C:\Users\16472\Downloads\EECS4443\GroupProject\app\build\intermediates\merged_res\debug\mergeDebugResources
-ca.yorku.eecs.mack.groupproject.app-debug-5 C:\Users\16472\Downloads\EECS4443\GroupProject\app\src\debug\res
-ca.yorku.eecs.mack.groupproject.app-main-6 C:\Users\16472\Downloads\EECS4443\GroupProject\app\src\main\res
+ca.yorku.eecs.mack.groupproject.app-pngs-0 C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\build\generated\res\pngs\debug
+ca.yorku.eecs.mack.groupproject.app-resValues-1 C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\build\generated\res\resValues\debug
+ca.yorku.eecs.mack.groupproject.app-mergeDebugResources-2 C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\build\intermediates\incremental\debug\mergeDebugResources\merged.dir
+ca.yorku.eecs.mack.groupproject.app-mergeDebugResources-3 C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\build\intermediates\incremental\debug\mergeDebugResources\stripped.dir
+ca.yorku.eecs.mack.groupproject.app-debug-4 C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\build\intermediates\merged_res\debug\mergeDebugResources
+ca.yorku.eecs.mack.groupproject.app-debug-5 C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\debug\res
+ca.yorku.eecs.mack.groupproject.app-main-6 C:\Users\16472\Documents\GitHub\EECS4443GroupProject\app\src\main\res

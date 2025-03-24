@@ -11,18 +11,18 @@ import android.widget.Button;
 import java.io.IOException;
 
 /**
- * in the first column, five hiragana characters will be shown (か、き、く、け、こ)
- * in the second column, its romanized pronunciation will be shown (ka, ki, ku, ke, ko)
+ * in the first column, five hiragana characters will be shown (ま、み、む、め、も)
+ * in the second column, its romanized pronunciation will be shown (ma, mi, mu, me,mo)
  * in the third column, a button to play a .mp3 file of its pronunciation will be shown
  */
 
-public class K_Intro extends Activity implements OnClickListener {
+public class M_Intro extends Activity implements OnClickListener {
     private MediaPlayer mediaPlayer;
     private AssetManager assetManager;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.k_intro);
+        setContentView(R.layout.m_intro);
         // Initialize the activity by setting up buttons and the asset manager
         initialize();
         assetManager = getAssets();
@@ -41,13 +41,20 @@ public class K_Intro extends Activity implements OnClickListener {
         Button playButton5 = findViewById(R.id.playButton5);
 
         // Set click listeners for each button, providing the path to the audio files
-        playButton1.setOnClickListener(v -> playSound("hiragana_sounds/section_2/kanasound-ka.mp3"));
-        playButton2.setOnClickListener(v -> playSound("hiragana_sounds/section_2/kanasound-ki.mp3"));
-        playButton3.setOnClickListener(v -> playSound("hiragana_sounds/section_2/kanasound-ku.mp3"));
-        playButton4.setOnClickListener(v -> playSound("hiragana_sounds/section_2/kanasound-ke.mp3"));
-        playButton5.setOnClickListener(v -> playSound("hiragana_sounds/section_2/kanasound-ko.mp3"));
+        playButton1.setOnClickListener(v -> playSound("hiragana_sounds/section_3/kanasound-ma.mp3"));
+        playButton2.setOnClickListener(v -> playSound("hiragana_sounds/section_3/kanasound-mi.mp3"));
+        playButton3.setOnClickListener(v -> playSound("hiragana_sounds/section_3/kanasound-mu.mp3"));
+        playButton4.setOnClickListener(v -> playSound("hiragana_sounds/section_3/kanasound-me.mp3"));
+        playButton5.setOnClickListener(v -> playSound("hiragana_sounds/section_3/kanasound-mo.mp3"));
     }
 
+    /**
+     * Plays the specified audio file.
+     * If a MediaPlayer instance already exists, it is released before creating a new one.
+     * Sets up the MediaPlayer, prepares it, and starts playback.
+     *
+     * @param filePath The path to the audio file within the assets folder.
+     */
     private void playSound(String filePath) {
         // Release existing MediaPlayer if it's currently playing
         if (mediaPlayer != null) {
@@ -55,6 +62,7 @@ public class K_Intro extends Activity implements OnClickListener {
         }
 
         mediaPlayer = new MediaPlayer();
+
         try {
             // Open the audio file from assets
             AssetFileDescriptor afd = assetManager.openFd(filePath);
@@ -63,6 +71,7 @@ public class K_Intro extends Activity implements OnClickListener {
 
             // Prepare and start playback
             mediaPlayer.prepare();
+            mediaPlayer.setVolume(1.0f, 1.0f);  // Ensure volume is at maximum
             mediaPlayer.start();
 
             // Release the MediaPlayer once playback is complete
@@ -72,7 +81,7 @@ public class K_Intro extends Activity implements OnClickListener {
             });
 
         } catch (IOException e) {
-            e.printStackTrace(); // Log any errors during audio playback
+            e.printStackTrace();  // Log any errors during audio playback
         }
     }
 

@@ -11,18 +11,18 @@ import android.widget.Button;
 import java.io.IOException;
 
 /**
- * in the first column, five hiragana characters will be shown (か、き、く、け、こ)
- * in the second column, its romanized pronunciation will be shown (ka, ki, ku, ke, ko)
+ * in the first column, five hiragana characters will be shown (ら、り、る、れ、ろ)
+ * in the second column, its romanized pronunciation will be shown (ra, ri, ru ,re, ro)
  * in the third column, a button to play a .mp3 file of its pronunciation will be shown
  */
 
-public class K_Intro extends Activity implements OnClickListener {
+public class R_Intro extends Activity implements OnClickListener {
     private MediaPlayer mediaPlayer;
     private AssetManager assetManager;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.k_intro);
+        setContentView(R.layout.r_intro);
         // Initialize the activity by setting up buttons and the asset manager
         initialize();
         assetManager = getAssets();
@@ -41,11 +41,11 @@ public class K_Intro extends Activity implements OnClickListener {
         Button playButton5 = findViewById(R.id.playButton5);
 
         // Set click listeners for each button, providing the path to the audio files
-        playButton1.setOnClickListener(v -> playSound("hiragana_sounds/section_2/kanasound-ka.mp3"));
-        playButton2.setOnClickListener(v -> playSound("hiragana_sounds/section_2/kanasound-ki.mp3"));
-        playButton3.setOnClickListener(v -> playSound("hiragana_sounds/section_2/kanasound-ku.mp3"));
-        playButton4.setOnClickListener(v -> playSound("hiragana_sounds/section_2/kanasound-ke.mp3"));
-        playButton5.setOnClickListener(v -> playSound("hiragana_sounds/section_2/kanasound-ko.mp3"));
+        playButton1.setOnClickListener(v -> playSound("hiragana_sounds/section_4/kanasound-ra.mp3"));
+        playButton2.setOnClickListener(v -> playSound("hiragana_sounds/section_4/kanasound-ri.mp3"));
+        playButton3.setOnClickListener(v -> playSound("hiragana_sounds/section_4/kanasound-ru.mp3"));
+        playButton4.setOnClickListener(v -> playSound("hiragana_sounds/section_4/kanasound-re.mp3"));
+        playButton5.setOnClickListener(v -> playSound("hiragana_sounds/section_4/kanasound-ro.mp3"));
     }
 
     private void playSound(String filePath) {
