@@ -12,6 +12,12 @@ public class HiraganaItem implements Serializable {
         this.correctInRow = 0;
     }
 
+    public HiraganaItem(String hiragana, String romaji, int correctInRow) {
+        this.hiragana = hiragana;
+        this.romaji = romaji;
+        this.correctInRow = correctInRow;
+    }
+
     public String getHiragana() {
         return hiragana;
     }
@@ -29,4 +35,9 @@ public class HiraganaItem implements Serializable {
     }
 
     public void resetCorrectInRow() { this.correctInRow = 0; }
+
+    // Creates a deep copy
+    public HiraganaItem duplicate() {
+        return new HiraganaItem(this.hiragana, this.romaji, this.correctInRow);
+    }
 }

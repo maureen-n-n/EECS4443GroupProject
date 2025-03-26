@@ -34,22 +34,21 @@ public class Learning extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         final int RESULT_CORRECT = 1, RESULT_INCORRECT = 2;
-        boolean completedCharacter = false;
 
         if (requestCode == 1) {
             if (resultCode == RESULT_CORRECT) {
+                // Remove the character and increment the correct in row count
+                remainingHiragana.remove(currentHiragana);
                 currentHiragana.incrementCorrectInRow();
-                if (currentHiragana.getCorrectInRow() >= 2) {
-                    completedCharacter = true;
+                // If we still need to answer the copied hiragana correctly again, add it back to the end of the list
+                if (currentHiragana.getCorrectInRow() < 2) {
+                    remainingHiragana.add(currentHiragana);
                 }
+                // Select the next character in the list for our next card
+                currentHiragana = remainingHiragana.get(0);
             } else if (resultCode == RESULT_INCORRECT) {
+                // In this case the next card will be the same character for reinforcement
                 currentHiragana.resetCorrectInRow();
-            }
-            // Remove the character.
-            remainingHiragana.remove(currentHiragana);
-            // If we finished it, keep it removed. Otherwise, we're just moving it to the back of the list
-            if (!completedCharacter) {
-                remainingHiragana.add(currentHiragana);
             }
             // Request a new card
             newCard();
@@ -82,8 +81,6 @@ public class Learning extends AppCompatActivity {
 
 
     private void newCard() {
-        // Select the first character in our list
-        currentHiragana = remainingHiragana.get(0);
         // Start a new card class and pass it via intent
         Intent intent = new Intent(this, Card.class);
         intent.putExtra("hiraganaItem", currentHiragana);
@@ -91,6 +88,9 @@ public class Learning extends AppCompatActivity {
     }
 
     private void startLearning() {
+        // Select the first character in our list
+        currentHiragana = remainingHiragana.get(0);
+        // Create our first card
         newCard();
     }
 }
