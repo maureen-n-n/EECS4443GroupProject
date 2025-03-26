@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Japanese Language Learning App</string>
+    <string name="text_input_hint">Enter your answer here</string>
+    <string name="button_dont_know">Don\'t know</string>
+    <string name="label_what_sound">What sound does this character make?</string>
 </resources>

@@ -1,11 +1,11 @@
 apply plugin: 'com.android.application'
 android {
     namespace 'ca.yorku.eecs.mack.groupproject'
-    compileSdk 33
+    compileSdk 35
 
     defaultConfig {
         applicationId "ca.yorku.eecs.mack.groupproject"
-        minSdk 13
+        minSdk 21
         targetSdk 33
     }
     buildTypes {
@@ -23,4 +23,5 @@ android {
 }
 
 dependencies {
+    implementation 'com.google.android.material:material:1.12.0'
 }
