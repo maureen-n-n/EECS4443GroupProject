@@ -14,6 +14,7 @@ import java.util.Random;
 public class Learning extends AppCompatActivity {
     private List<HiraganaItem> allHiragana, remainingHiragana;
     private HiraganaItem currentHiragana;
+    private static final String TAG = "LearningActivity";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +26,8 @@ public class Learning extends AppCompatActivity {
         // Duplicate it and shuffle it to create our working list
         remainingHiragana = new ArrayList<>(allHiragana);
         Collections.shuffle(remainingHiragana);
+
+        Log.d(TAG, "Starting learning session. Total characters: " + remainingHiragana.size());
         // Start the process of learning
         startLearning();
     }
@@ -36,22 +39,30 @@ public class Learning extends AppCompatActivity {
         final int RESULT_CORRECT = 1, RESULT_INCORRECT = 2;
 
         if (requestCode == 1) {
+            Log.d(TAG, "Remaining before processing: " + remainingHiragana.size());
             if (resultCode == RESULT_CORRECT) {
-                // Remove the character and increment the correct in row count
                 remainingHiragana.remove(currentHiragana);
                 currentHiragana.incrementCorrectInRow();
-                // If we still need to answer the copied hiragana correctly again, add it back to the end of the list
+                Log.d(TAG, "After processing | Remaining: " + remainingHiragana.size());
                 if (currentHiragana.getCorrectInRow() < 2) {
                     remainingHiragana.add(currentHiragana);
                 }
-                // Select the next character in the list for our next card
-                currentHiragana = remainingHiragana.get(0);
             } else if (resultCode == RESULT_INCORRECT) {
-                // In this case the next card will be the same character for reinforcement
                 currentHiragana.resetCorrectInRow();
+                remainingHiragana.remove(currentHiragana);
+                remainingHiragana.add(0, currentHiragana);
+                Log.d(TAG, "After processing | Remaining: " + remainingHiragana.size());
             }
-            // Request a new card
-            newCard();
+
+            if (remainingHiragana.isEmpty()) {
+                Log.i(TAG, "All characters completed!");
+                startActivity(new Intent(this, Learning_Complete.class));
+                finish();
+            } else {
+                currentHiragana = remainingHiragana.get(0);
+                newCard();
+                Log.d(TAG, "Next character: " + currentHiragana.getHiragana() + ", Sound: " + currentHiragana.getRomaji());
+            }
         }
     }
 

@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="ca.yorku.eecs.mack.groupproject"
     android:versionCode="1"
     android:versionName="1.0">
 
@@ -21,22 +22,39 @@
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-        </activity> <!-- VOWEL- INTRO ACTIVITY -->
-        <activity
-            android:name=".Vowel_Intro"
-            android:exported="true"></activity> <!-- K- INTRO ACTIVITY -->
-        <activity
-            android:name=".K_Intro"
-            android:exported="true"></activity> <!-- M- INTRO ACTIVITY -->
-        <activity
-            android:name=".M_Intro"
-            android:exported="true"></activity> <!-- R- INTRO ACTIVITY -->
-        <activity
-            android:name=".R_Intro"
-            android:exported="true"></activity> <!-- CARD ACTIVITY -->
+        </activity>
+
+        <!-- VOWEL- INTRO ACTIVITY -->
         <activity
             android:name=".Card"
-            android:exported="true"></activity>
+            android:exported="false"
+            android:parentActivityName=".Learning"/>
+
+        <activity
+            android:name=".Learning_Complete"
+            android:exported="false"
+            android:parentActivityName=".Learning"/>
+
+        <!-- Introduction Screens -->
+        <activity
+            android:name=".Vowel_Intro"
+            android:exported="false"
+            android:parentActivityName=".main"/>
+
+        <activity
+            android:name=".K_Intro"
+            android:exported="false"
+            android:parentActivityName=".main"/>
+
+        <activity
+            android:name=".M_Intro"
+            android:exported="false"
+            android:parentActivityName=".main"/>
+
+        <activity
+            android:name=".R_Intro"
+            android:exported="false"
+            android:parentActivityName=".main"/>
     </application>
 
 </manifest>

@@ -13,6 +13,7 @@ public class Card extends Activity {
     private TextView testingCharacter, evaluation;
     private EditText inputAnswer;
 
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,23 +29,45 @@ public class Card extends Activity {
 
     public void clickAnswer(View view) {
         String answer = inputAnswer.getText().toString().trim();
-        // Make sure answer field isn't empty
+        evaluation = findViewById(R.id.evaluation);
+
         if (answer.isEmpty()) {
             inputAnswer.setError("Answer cannot be blank.");
-        } else {
-            if (answer.equals(hiraganaItem.getRomaji())) {
-                setResult(RESULT_CORRECT);
-                finish();
-            } else {
-                setResult(RESULT_INCORRECT);
-                finish();
-            }
+            return;
         }
+
+        int resultCode;
+        if (answer.equals(hiraganaItem.getRomaji())) {
+            evaluation.setText("Correct!");
+            resultCode = RESULT_CORRECT;
+        } else {
+            evaluation.setText("Incorrect" );
+            resultCode = RESULT_INCORRECT;
+        }
+
+        disableControls();
+
+        new android.os.Handler().postDelayed(() -> {
+            setResult(resultCode);
+            finish();
+        }, 2000);
     }
 
     public void clickDontKnow(View view) {
-        setResult(RESULT_INCORRECT);
-        finish();
+        evaluation = findViewById(R.id.evaluation);
+        evaluation.setText("Try Again Later");
+        disableControls();
+
+        new android.os.Handler().postDelayed(() -> {
+            setResult(RESULT_INCORRECT);
+            finish();
+        }, 2000);
+    }
+
+    private void disableControls() {
+        findViewById(R.id.button_answer).setEnabled(false);
+        findViewById(R.id.dont_know_button).setEnabled(false);
+        inputAnswer.setEnabled(false);
     }
 
 }
