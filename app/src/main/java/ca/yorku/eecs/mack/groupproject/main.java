@@ -21,7 +21,7 @@ public class main extends Activity {
     }
 
     public void clickCardTest(View view) {
-        Intent intent = new Intent(this, Card.class);
+        Intent intent = new Intent(this, Learning.class);
         startActivity(intent);
         finish();
     }
