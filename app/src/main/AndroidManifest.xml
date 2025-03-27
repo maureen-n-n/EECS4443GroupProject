@@ -33,7 +33,8 @@
         <activity
             android:name=".Learning_Complete"
             android:exported="false"
-            android:parentActivityName=".Learning"/>
+            android:parentActivityName=".Learning"
+            android:theme="@style/Theme.Custom"/>
 
         <!-- Introduction Screens -->
         <activity

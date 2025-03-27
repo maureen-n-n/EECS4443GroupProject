@@ -23,7 +23,7 @@ public class Card extends Activity {
     private final int RESULT_CORRECT = 1, RESULT_INCORRECT = 2;
 
     private HiraganaItem hiraganaItem;
-    private TextView testingCharacter, evaluation;
+    private TextView testingCharacter, evaluationText;
     private EditText inputAnswer;
     private TextView timerText;
     private String currentMode;
@@ -32,6 +32,7 @@ public class Card extends Activity {
     private CountDownTimer countDownTimer;
     private long timeLeftInMillis = TIMER_DURATION;
     private CircularProgressIndicator circleProgress;
+
 
     @Override
     protected void onStart() {
@@ -52,6 +53,9 @@ public class Card extends Activity {
 
         setupTimer();
         setupUI();
+
+        evaluationText = findViewById(R.id.evaluation);
+        evaluationText.setVisibility(View.GONE);
 
         hiraganaItem = (HiraganaItem) getIntent().getSerializableExtra("hiraganaItem");
 
@@ -154,44 +158,49 @@ public class Card extends Activity {
     }
 
     public void clickAnswer(View view) {
-        if (countDownTimer != null) {
-            countDownTimer.cancel();
-        }
         String answer = inputAnswer.getText().toString().trim();
-        evaluation = findViewById(R.id.evaluation);
-
         if (answer.isEmpty()) {
             inputAnswer.setError("Answer cannot be blank.");
             return;
         }
 
-        int resultCode;
-        if (answer.equals(hiraganaItem.getRomaji())) {
-            evaluation.setText("Correct!");
-            resultCode = RESULT_CORRECT;
+        boolean isCorrect = answer.equalsIgnoreCase(hiraganaItem.getRomaji());
+
+        evaluationText.setVisibility(View.VISIBLE);
+        if (isCorrect) {
+            evaluationText.setText("Correct!");
+            evaluationText.setTextColor(ContextCompat.getColor(this, R.color.green));
         } else {
-            evaluation.setText("Incorrect" );
-            resultCode = RESULT_INCORRECT;
+            String message = "Incorrect, Correct answer was: " + hiraganaItem.getRomaji();
+            evaluationText.setText(message);
+            evaluationText.setTextColor(ContextCompat.getColor(this, R.color.red));
         }
 
-        disableControls();
+        inputAnswer.setEnabled(false);
+        findViewById(R.id.button_answer).setEnabled(false);
+        findViewById(R.id.dont_know_button).setEnabled(false);
 
-        new android.os.Handler().postDelayed(() -> {
-            setResult(resultCode);
+        new Handler().postDelayed(() -> {
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("RESULT", isCorrect ? RESULT_CORRECT : RESULT_INCORRECT);
+            setResult(RESULT_OK, resultIntent);
             finish();
         }, 2000);
     }
 
     public void clickDontKnow(View view) {
-        if (countDownTimer != null) {
-            countDownTimer.cancel();
-        }
-        evaluation = findViewById(R.id.evaluation);
-        evaluation.setText("Try Again Later");
-        disableControls();
+        evaluationText.setVisibility(View.VISIBLE);
+        evaluationText.setText("Try again later! ");
+        evaluationText.setTextColor(ContextCompat.getColor(this, R.color.red));
 
-        new android.os.Handler().postDelayed(() -> {
-            setResult(RESULT_INCORRECT);
+        inputAnswer.setEnabled(false);
+        findViewById(R.id.button_answer).setEnabled(false);
+        findViewById(R.id.dont_know_button).setEnabled(false);
+
+        new Handler().postDelayed(() -> {
+            Intent resultIntent = new Intent();
+            resultIntent.putExtra("RESULT", RESULT_INCORRECT);
+            setResult(RESULT_OK, resultIntent);
             finish();
         }, 2000);
     }

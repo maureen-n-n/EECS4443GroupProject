@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:gravity="center"
     android:orientation="vertical">
 
@@ -14,11 +15,20 @@
         android:textStyle="bold"/>
 
     <TextView
+        android:id="@+id/stats_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingBottom="100dp"
-        android:text="All Characters Mastered!"
-        android:textSize="24dp"
-        android:textStyle="bold"/>
+        android:text="Session Complete!"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp"/>
+
+    <TextView
+        android:id="@+id/stats_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:lineSpacingMultiplier="1.2"
+        android:gravity="center"/>
 
 </LinearLayout>

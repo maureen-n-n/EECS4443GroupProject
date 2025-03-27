@@ -14,4 +14,12 @@
     <string name="hidden_timer_mode">Hidden Timer Mode</string>
     <string name="emphasized_timer_mode">Emphasized Timer Mode</string>
     <string name="timeout_message">Time\'s up! Moving to next card…</string>
+    <string name="session_stats">
+    Total Cards: %d\n
+    Correct Answers: %d\n
+    Incorrect Answers: %d\n
+    Timeouts: %d\n
+    Total Time: %s\n
+    Accuracy: %s
+    </string>
 </resources>
