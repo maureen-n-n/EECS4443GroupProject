@@ -55,6 +55,11 @@
             android:name=".R_Intro"
             android:exported="false"
             android:parentActivityName=".main"/>
+
+        <activity
+            android:name=".ModeSelection"
+            android:exported="false"
+            android:parentActivityName=".main"/>
     </application>
 
 </manifest>

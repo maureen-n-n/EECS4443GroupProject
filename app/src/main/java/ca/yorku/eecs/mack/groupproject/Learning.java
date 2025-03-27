@@ -2,24 +2,28 @@ package ca.yorku.eecs.mack.groupproject;
 
 import android.content.Intent;
 import android.os.Bundle;
+
 import android.util.Log;
+import android.view.View;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-import java.util.Random;
+
 
 public class Learning extends AppCompatActivity {
     private List<HiraganaItem> allHiragana, remainingHiragana;
     private HiraganaItem currentHiragana;
     private static final String TAG = "LearningActivity";
+    private String currentMode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.learning);
+        currentMode = getIntent().getStringExtra("MODE");
 
         // Initialize the ordered list of all of our hiragana characters
         createHiraganaList();
@@ -38,20 +42,28 @@ public class Learning extends AppCompatActivity {
 
         final int RESULT_CORRECT = 1, RESULT_INCORRECT = 2;
 
-        if (requestCode == 1) {
-            Log.d(TAG, "Remaining before processing: " + remainingHiragana.size());
-            if (resultCode == RESULT_CORRECT) {
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            boolean isTimeout = data.getBooleanExtra("TIMEOUT", false);
+
+            if (isTimeout) {
                 remainingHiragana.remove(currentHiragana);
-                currentHiragana.incrementCorrectInRow();
-                Log.d(TAG, "After processing | Remaining: " + remainingHiragana.size());
-                if (currentHiragana.getCorrectInRow() < 2) {
-                    remainingHiragana.add(currentHiragana);
-                }
-            } else if (resultCode == RESULT_INCORRECT) {
                 currentHiragana.resetCorrectInRow();
-                remainingHiragana.remove(currentHiragana);
-                remainingHiragana.add(0, currentHiragana);
-                Log.d(TAG, "After processing | Remaining: " + remainingHiragana.size());
+                remainingHiragana.add(currentHiragana);
+            } else {
+                Log.d(TAG, "Remaining before processing: " + remainingHiragana.size());
+                if (resultCode == RESULT_CORRECT) {
+                    remainingHiragana.remove(currentHiragana);
+                    currentHiragana.incrementCorrectInRow();
+                    Log.d(TAG, "After processing | Remaining: " + remainingHiragana.size());
+                    if (currentHiragana.getCorrectInRow() < 2) {
+                        remainingHiragana.add(currentHiragana);
+                    }
+                } else if (resultCode == RESULT_INCORRECT) {
+                    currentHiragana.resetCorrectInRow();
+                    remainingHiragana.remove(currentHiragana);
+                    remainingHiragana.add(0, currentHiragana);
+                    Log.d(TAG, "After processing | Remaining: " + remainingHiragana.size());
+                }
             }
 
             if (remainingHiragana.isEmpty()) {
@@ -94,6 +106,7 @@ public class Learning extends AppCompatActivity {
     private void newCard() {
         // Start a new card class and pass it via intent
         Intent intent = new Intent(this, Card.class);
+        intent.putExtra("MODE", currentMode);
         intent.putExtra("hiraganaItem", currentHiragana);
         startActivityForResult(intent, 1);
     }

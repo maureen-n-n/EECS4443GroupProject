@@ -10,4 +10,8 @@
     <string name="m_intro">M Intro</string>
     <string name="r_intro">R Intro</string>
     <string name="card_test">Card Test</string>
+    <string name="untimed_mode">Untimed Mode</string>
+    <string name="hidden_timer_mode">Hidden Timer Mode</string>
+    <string name="emphasized_timer_mode">Emphasized Timer Mode</string>
+    <string name="timeout_message">Time\'s up! Moving to next card…</string>
 </resources>
