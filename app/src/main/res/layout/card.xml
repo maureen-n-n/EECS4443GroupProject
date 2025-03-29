@@ -25,6 +25,28 @@
 
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/card_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0/40"
+            android:textSize="20sp"
+            android:layout_marginStart="16dp"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </FrameLayout>
+
+    </LinearLayout>
+
 
     <LinearLayout
         android:layout_width="match_parent"

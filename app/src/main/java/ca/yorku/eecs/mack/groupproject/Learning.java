@@ -3,6 +3,7 @@ package ca.yorku.eecs.mack.groupproject;
 import android.content.Intent;
 import android.os.Bundle;
 
+import android.os.Handler;
 import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
@@ -23,6 +24,10 @@ public class Learning extends AppCompatActivity {
     private int correctCount;
     private int incorrectCount;
     private int timeoutCount;
+    private int totalCorrectProgress = 0;
+    private boolean showRedFlag = false;
+    private int currentCardIndex;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,53 +52,83 @@ public class Learning extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         final int RESULT_CORRECT = 1, RESULT_INCORRECT = 2;
 
-        if (requestCode == 1) {
-            if (resultCode == RESULT_OK && data != null) {
-                int result = data.getIntExtra("RESULT", RESULT_INCORRECT);
-                boolean isTimeout = data.getBooleanExtra("TIMEOUT", false);
+        if (requestCode == 1 && resultCode == RESULT_OK && data != null) {
+            boolean isTimeout = data.getBooleanExtra("TIMEOUT", false);
+            int result = data.getIntExtra("RESULT", RESULT_INCORRECT);
+            String answeredHiragana = data.getStringExtra("HIRAGANA");
+            String answeredRomaji = data.getStringExtra("ROMAJI");
+            int previousProgress = totalCorrectProgress;
 
-                if (isTimeout) {
-                    handleTimeout();
-                } else {
-                    handleAnswerResult(result == RESULT_CORRECT);
-                    Log.d(TAG, "Remaining before processing: " + remainingHiragana.size());
-                }
+            Log.d(TAG, "=== Handling result ===");
+            Log.d(TAG, "Received result: " +
+                    (isTimeout ? "TIMEOUT" :
+                            (result == RESULT_CORRECT ? "CORRECT" : "INCORRECT")) +
+                    " for " + answeredHiragana + " (" + answeredRomaji + ")");
 
-                if (isTimeout) {
-                    remainingHiragana.remove(currentHiragana);
-                    currentHiragana.resetCorrectInRow();
-                    remainingHiragana.add(currentHiragana);
-                    Log.d(TAG, "Remaining before processing: " + remainingHiragana.size());
-                } else {
-                    if (result == 1) {
-                        remainingHiragana.remove(currentHiragana);
-                        currentHiragana.incrementCorrectInRow();
-                        if (currentHiragana.getCorrectInRow() < 2) {
-                            remainingHiragana.add(currentHiragana);
-                        }
-                        Log.d(TAG, "After processing | Remaining: " + remainingHiragana.size());
-                    } else {
-                        currentHiragana.resetCorrectInRow();
-                        remainingHiragana.remove(currentHiragana);
-                        remainingHiragana.add(currentHiragana);
-                        Log.d(TAG, "After processing | Remaining: " + remainingHiragana.size());
-                    }
-                }
+            if (answeredHiragana == null || answeredRomaji == null) {
+                return;
+            }
 
-                if (remainingHiragana.isEmpty()) {
-                    showCompletionScreen();
+            HiraganaItem answeredItem = findCard(answeredHiragana, answeredRomaji);
+            if (answeredItem == null) return;
+
+            if (isTimeout) {
+                handleTimeout();
+                timeoutCount++;
+                answeredItem.resetCorrectInRow();
+            } else if (result == RESULT_CORRECT) {
+                correctCount++;
+                totalCorrectProgress++;
+                answeredItem.incrementCorrectInRow();
+            } else {
+                incorrectCount++;
+                answeredItem.resetCorrectInRow();
+            }
+
+            remainingHiragana.remove(answeredItem);
+
+            if (result == RESULT_CORRECT) {
+                if (answeredItem.getCorrectInRow() >= 2) {
                 } else {
-                    currentHiragana = remainingHiragana.get(0);
-                    Log.d(TAG, "Next character: " + currentHiragana.getHiragana() + ", Sound: " + currentHiragana.getRomaji());
-                    newCard();
+                    remainingHiragana.add(answeredItem);
                 }
             } else {
-                Log.e(TAG, "Unexpected result: " + resultCode);
+                remainingHiragana.add(answeredItem);
+            }
+
+            Log.d(TAG, "Remaining cards: " + remainingHiragana.size());
+
+            if (remainingHiragana.isEmpty()) {
+                Log.i(TAG, "All cards completed!");
+                showCompletionScreen();
+            } else {
+                currentHiragana = remainingHiragana.get(0);
+                Log.d(TAG, "Next card: " + currentHiragana.getHiragana() +
+                        " (" + currentHiragana.getRomaji() + ")");
+
+                Intent nextIntent = new Intent(this, Card.class);
+                nextIntent.putExtra("MODE", currentMode);
+                nextIntent.putExtra("HIRAGANA", currentHiragana.getHiragana());
+                nextIntent.putExtra("ROMAJI", currentHiragana.getRomaji());
+                nextIntent.putExtra("CURRENT_PROGRESS", totalCorrectProgress);
+                nextIntent.putExtra("SHOW_RED", showRedFlag);
+
+                Log.d(TAG, "Launching next card with progress: " + totalCorrectProgress + "/40");
+                startActivityForResult(nextIntent, 1);
             }
         }
+    }
+
+    private HiraganaItem findCard(String hiragana, String romaji) {
+        for (HiraganaItem item : remainingHiragana) {
+            if (item.getHiragana().equals(hiragana) && item.getRomaji().equals(romaji)) {
+                return item;
+            }
+        }
+        Log.e(TAG, "Card not found: " + hiragana);
+        return null;
     }
 
     private void createHiraganaList() {
@@ -122,10 +157,15 @@ public class Learning extends AppCompatActivity {
 
 
     private void newCard() {
-        // Start a new card class and pass it via intent
+        if (remainingHiragana.isEmpty()) return;
+
+        currentHiragana = remainingHiragana.get(0);
         Intent intent = new Intent(this, Card.class);
         intent.putExtra("MODE", currentMode);
-        intent.putExtra("hiraganaItem", currentHiragana);
+        intent.putExtra("HIRAGANA", currentHiragana.getHiragana());
+        intent.putExtra("ROMAJI", currentHiragana.getRomaji());
+        intent.putExtra("CURRENT_PROGRESS", totalCorrectProgress);
+        intent.putExtra("SHOW_RED", showRedFlag);
         startActivityForResult(intent, 1);
     }
 
@@ -146,11 +186,20 @@ public class Learning extends AppCompatActivity {
         timeoutCount++;
     }
 
+    private void calculateTotalProgress() {
+        totalCorrectProgress = 0;
+        for (HiraganaItem item : allHiragana) {
+            totalCorrectProgress += item.getCorrectInRow();
+        }
+    }
+
     private void showCompletionScreen() {
         long sessionDuration = System.currentTimeMillis() - sessionStartTime;
+        int totalAttempts = correctCount + incorrectCount + timeoutCount;
+
 
         Intent intent = new Intent(this, Learning_Complete.class);
-        intent.putExtra("TOTAL_CARDS", totalCards);
+        intent.putExtra("TOTAL_CARDS", totalAttempts);
         intent.putExtra("CORRECT", correctCount);
         intent.putExtra("INCORRECT", incorrectCount);
         intent.putExtra("TIMEOUTS", timeoutCount);

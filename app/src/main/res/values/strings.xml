@@ -22,4 +22,5 @@
     Total Time: %s\n
     Accuracy: %s
     </string>
+    <string name="card_counter">Card %1$d/%2$d</string>
 </resources>

@@ -40,4 +40,7 @@ public class HiraganaItem implements Serializable {
     public HiraganaItem duplicate() {
         return new HiraganaItem(this.hiragana, this.romaji, this.correctInRow);
     }
+    public void decrementCorrectInRow() {
+        this.correctInRow = Math.max(0, this.correctInRow - 1);
+    }
 }
