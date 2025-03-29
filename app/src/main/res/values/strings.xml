@@ -1,4 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Japanese Language Learning App</string>
+    <string name="label_what_sound">What sound does this character make?</string>
+    <string name="text_input_hint">Enter your answer here</string>
+    <string name="button_answer">Answer</string>
+    <string name="button_dont_know">Don\'t know</string>
+    <string name="vowel_intro">Vowel Intro</string>
+    <string name="k_intro">K Intro</string>
+    <string name="m_intro">M Intro</string>
+    <string name="r_intro">R Intro</string>
+    <string name="card_test">Card Test</string>
+    <string name="untimed_mode">Untimed Mode</string>
+    <string name="hidden_timer_mode">Hidden Timer Mode</string>
+    <string name="emphasized_timer_mode">Emphasized Timer Mode</string>
+    <string name="timeout_message">Time\'s up! Moving to next card…</string>
+    <string name="session_stats">
+    Total Cards: %d\n
+    Correct Answers: %d\n
+    Incorrect Answers: %d\n
+    Timeouts: %d\n
+    Total Time: %s\n
+    Accuracy: %s
+    </string>
+    <string name="card_counter">Card %1$d/%2$d</string>
 </resources>

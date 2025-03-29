@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="start"
+        android:orientation="horizontal">
+
+        <com.google.android.material.progressindicator.CircularProgressIndicator
+            android:id="@+id/circleProgress"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:gravity="center"
+            android:visibility="gone"
+            app:indicatorColor="@color/timer_red"
+            app:trackColor="@color/gray"
+            app:trackThickness="4dp"
+            app:indicatorDirectionCircular="counterclockwise"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/card_counter"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0/40"
+            android:textSize="20sp"
+            android:layout_marginStart="16dp"/>
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </FrameLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:gravity="center"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/timerText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="00:00"
+            android:textSize="30sp"
+            android:visibility="gone"
+            android:textColor="@color/timer_red"
+            android:layout_marginEnd="8dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:orientation="vertical"
+        android:layout_marginHorizontal="16dp"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:gravity="center"
+            android:text="@string/label_what_sound">
+        </TextView>
+
+        <TextView
+            android:id="@+id/hiraganaCharacter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="128sp"
+            android:gravity="center"
+            android:text="あ">
+        </TextView>
+
+    </LinearLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="?android:attr/listDivider"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/evaluation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            android:paddingBottom="10dp"
+            android:textAlignment="center"
+            android:textSize="20dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/text_input_hint"
+            android:layout_marginBottom="20dp"
+            >
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/inputAnswer"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="22sp"/>
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_answer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_answer"
+            android:textSize="24sp"
+            android:onClick="clickAnswer"
+            android:layout_marginBottom="10dp">
+        </com.google.android.material.button.MaterialButton>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/dont_know_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/button_dont_know"
+            android:textSize="24sp"
+            android:onClick="clickDontKnow"
+            style="@style/Widget.Material3.Button.OutlinedButton">
+        </com.google.android.material.button.MaterialButton>
+</LinearLayout>
+
+</LinearLayout>

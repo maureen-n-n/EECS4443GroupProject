@@ -20,8 +20,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingBottom="8dp">
-            <TextView android:id="@+id/hiragana1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ま" android:textSize="24sp" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ma" android:textSize="18sp" />
+            <TextView android:id="@+id/hiragana1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ま" android:textSize="30sp" android:textColor="@color/white" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="ma" android:textSize="30sp" android:textColor="@color/white" />
             <Button android:id="@+id/playButton1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Play" />
         </LinearLayout>
 
@@ -31,8 +31,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingBottom="8dp">
-            <TextView android:id="@+id/hiragana2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="み" android:textSize="24sp" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="mi" android:textSize="18sp" />
+            <TextView android:id="@+id/hiragana2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="み" android:textSize="30sp" android:textColor="@color/white" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="mi" android:textSize="30sp" android:textColor="@color/white" />
             <Button android:id="@+id/playButton2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Play" />
         </LinearLayout>
 
@@ -42,8 +42,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingBottom="8dp">
-            <TextView android:id="@+id/hiragana3" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="む" android:textSize="24sp" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="mu" android:textSize="18sp" />
+            <TextView android:id="@+id/hiragana3" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="む" android:textSize="30sp" android:textColor="@color/white" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="mu" android:textSize="30sp" android:textColor="@color/white" />
             <Button android:id="@+id/playButton3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Play" />
         </LinearLayout>
 
@@ -53,8 +53,8 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingBottom="8dp">
-            <TextView android:id="@+id/hiragana4" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="め" android:textSize="24sp" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="me" android:textSize="18sp" />
+            <TextView android:id="@+id/hiragana4" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="め" android:textSize="30sp" android:textColor="@color/white" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="me" android:textSize="30sp" android:textColor="@color/white" />
             <Button android:id="@+id/playButton4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Play" />
         </LinearLayout>
 
@@ -63,8 +63,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <TextView android:id="@+id/hiragana5" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="も" android:textSize="24sp" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="mo" android:textSize="18sp" />
+            <TextView android:id="@+id/hiragana5" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="も" android:textSize="30sp" android:textColor="@color/white" />
+            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="mo" android:textSize="30sp" android:textColor="@color/white" />
             <Button android:id="@+id/playButton5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Play" />
         </LinearLayout>
 
