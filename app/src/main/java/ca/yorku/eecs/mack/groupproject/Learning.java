@@ -123,6 +123,7 @@ public class Learning extends AppCompatActivity {
                 nextIntent.putExtra("HIRAGANA", currentHiragana.getHiragana());
                 nextIntent.putExtra("ROMAJI", currentHiragana.getRomaji());
                 nextIntent.putExtra("CURRENT_PROGRESS", totalCorrectAttempts);
+                nextIntent.putExtra("REMAINING_CARDS", remainingHiragana.size());
                 nextIntent.putExtra("SHOW_RED", showRed);
 
                 Log.d(TAG, "Launching next card with progress: " + totalCorrectAttempts + "/40");
@@ -175,6 +176,7 @@ public class Learning extends AppCompatActivity {
         intent.putExtra("HIRAGANA", currentHiragana.getHiragana());
         intent.putExtra("ROMAJI", currentHiragana.getRomaji());
         intent.putExtra("CURRENT_PROGRESS", totalCorrectAttempts);
+        intent.putExtra("REMAINING_CARDS", remainingHiragana.size());
         intent.putExtra("SHOW_RED", showRedFlag);
         startActivityForResult(intent, 1);
     }

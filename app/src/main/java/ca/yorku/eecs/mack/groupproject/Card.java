@@ -61,6 +61,7 @@ public class Card extends Activity {
         correctRomaji = getIntent().getStringExtra("ROMAJI");
         currentMode = getIntent().getStringExtra("MODE");
         int currentProgress = getIntent().getIntExtra("CURRENT_PROGRESS", 0);
+        int remainingCards = getIntent().getIntExtra("REMAINING_CARDS", 0);
         boolean showRed = getIntent().getBooleanExtra("SHOW_RED", false);
 
         if (currentHiragana == null || correctRomaji == null) {
@@ -71,7 +72,7 @@ public class Card extends Activity {
 
         testingCharacter.setText(currentHiragana);
         evaluationText.setVisibility(View.GONE);
-        cardCounter.setText(String.format(Locale.getDefault(), "%d/40", currentProgress));
+        cardCounter.setText(String.format(Locale.getDefault(), "Correct Cards: %d \nMastery Remaining: %d", currentProgress, remainingCards));
         cardCounter.setTextColor(showRed ? ContextCompat.getColor(this, R.color.progress_red) : ContextCompat.getColor(this, R.color.progress_green));
 
         setupUI();
