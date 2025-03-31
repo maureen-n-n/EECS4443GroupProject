@@ -74,7 +74,6 @@ public class Card extends Activity {
         evaluationText.setVisibility(View.GONE);
         cardCounter.setText(String.format(Locale.getDefault(), "Correct Cards: %d \nMastery Remaining: %d", currentProgress, remainingCards));
         cardCounter.setTextColor(showRed ? ContextCompat.getColor(this, R.color.progress_red) : ContextCompat.getColor(this, R.color.progress_green));
-
         setupUI();
         setupTimer();
     }

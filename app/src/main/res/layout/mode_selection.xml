@@ -5,11 +5,22 @@
     android:orientation="vertical"
     android:padding="16dp">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="@string/select_mode"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textStyle="bold"
+        android:layout_marginBottom="10dp">
+    </TextView>
+
     <Button
         android:id="@+id/btn_untimed"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/untimed_mode"
+        android:textSize="20sp"
         android:onClick="onModeSelected"
         android:tag="untimed"
         android:layout_marginBottom="16dp"/>
@@ -20,6 +31,7 @@
         android:layout_height="wrap_content"
         android:text="@string/hidden_timer_mode"
         android:onClick="onModeSelected"
+        android:textSize="20sp"
         android:tag="hidden"
         android:layout_marginBottom="16dp"/>
 
@@ -28,6 +40,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/emphasized_timer_mode"
+        android:textSize="20sp"
         android:onClick="onModeSelected"
         android:tag="emphasized"/>
 

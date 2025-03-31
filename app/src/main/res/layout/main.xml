@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#ff123456"
     tools:context=".main">
 
     <!-- Parent Layout to hold rows -->
@@ -15,6 +14,16 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/learning"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textStyle="bold"
+            android:layout_marginBottom="10dp">
+        </TextView>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -22,64 +31,69 @@
             android:layout_gravity="center">
 
             <!-- Vowel -->
-            <Button
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/btn_vowel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/vowel_intro"
                 android:textSize="20sp"
                 android:layout_marginBottom="16dp"
-                android:backgroundTint="#9024db"
-                android:textColor="#ffffff"
-                android:onClick="clickVowelIntro"/>
+                android:onClick="clickVowelIntro">
+            </com.google.android.material.button.MaterialButton>
 
             <!-- K -->
-            <Button
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/btn_k"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/k_intro"
                 android:textSize="20sp"
                 android:layout_marginBottom="16dp"
-                android:backgroundTint="#9024db"
-                android:textColor="#ffffff"
-                android:onClick="clickKIntro" />
+                android:onClick="clickKIntro">
+            </com.google.android.material.button.MaterialButton>
 
             <!-- M -->
-            <Button
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/btn_m"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/m_intro"
                 android:textSize="20sp"
                 android:layout_marginBottom="16dp"
-                android:backgroundTint="#9024db"
-                android:textColor="#ffffff"
-                android:onClick="clickMIntro" />
+                android:onClick="clickMIntro">
+            </com.google.android.material.button.MaterialButton>
 
             <!-- R -->
-            <Button
+            <com.google.android.material.button.MaterialButton
+                style="@style/Widget.Material3.Button.OutlinedButton"
                 android:id="@+id/btn_r"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/r_intro"
                 android:textSize="20sp"
-                android:layout_marginBottom="32dp"
-                android:backgroundTint="#9024db"
-                android:textColor="#ffffff"
-                android:onClick="clickRIntro" />
+                android:layout_marginBottom="16dp"
+                android:onClick="clickRIntro">
+            </com.google.android.material.button.MaterialButton>
+
         </LinearLayout>
 
-        <Button
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="?android:attr/listDivider" />
+
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/btn_card_test"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:text="@string/card_test"
             android:textSize="20sp"
-            android:backgroundTint="#003cff"
-            android:textColor="#ffffff"
             android:onClick="clickCardTest">
-        </Button>
+        </com.google.android.material.button.MaterialButton>
 
     </LinearLayout>
 
