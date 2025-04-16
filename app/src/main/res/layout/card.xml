@@ -38,6 +38,8 @@
             android:layout_height="wrap_content"
             android:text="0/40"
             android:textSize="20sp"
+            android:textAlignment="center"
+            android:gravity="center"
             android:layout_marginStart="16dp"/>
 
         <FrameLayout

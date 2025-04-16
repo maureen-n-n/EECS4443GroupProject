@@ -5,7 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:background="#ff123456"
     tools:context=".Vowel_Intro">
 
     <!-- Parent Layout to hold rows -->
@@ -20,9 +19,11 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingBottom="8dp">
-            <TextView android:id="@+id/hiragana1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="あ" android:textSize="30sp" android:textColor="@color/white" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="a" android:textSize="30sp" android:textColor="@color/white" />
-            <Button android:id="@+id/playButton1" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Play" />
+            <TextView android:id="@+id/hiragana1" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="あ" android:textSize="30sp" />
+            <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="a" android:textSize="30sp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/playButton1" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="Play">
+            </com.google.android.material.button.MaterialButton>
         </LinearLayout>
 
         <!-- Row 2 -->
@@ -31,9 +32,11 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingBottom="8dp">
-            <TextView android:id="@+id/hiragana2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="い" android:textSize="30sp" android:textColor="@color/white" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="i" android:textSize="30sp" android:textColor="@color/white" />
-            <Button android:id="@+id/playButton2" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Play" />
+            <TextView android:id="@+id/hiragana2" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="い" android:textSize="30sp" />
+            <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="i" android:textSize="30sp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/playButton2" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="Play">
+            </com.google.android.material.button.MaterialButton>
         </LinearLayout>
 
         <!-- Row 3 -->
@@ -42,9 +45,11 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingBottom="8dp">
-            <TextView android:id="@+id/hiragana3" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="う" android:textSize="30sp" android:textColor="@color/white" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="u" android:textSize="30sp" android:textColor="@color/white" />
-            <Button android:id="@+id/playButton3" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Play" />
+            <TextView android:id="@+id/hiragana3" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="う" android:textSize="30sp" />
+            <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="u" android:textSize="30sp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/playButton3" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="Play">
+            </com.google.android.material.button.MaterialButton>
         </LinearLayout>
 
         <!-- Row 4 -->
@@ -53,9 +58,11 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             android:paddingBottom="8dp">
-            <TextView android:id="@+id/hiragana4" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="え" android:textSize="30sp" android:textColor="@color/white" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="e" android:textSize="30sp" android:textColor="@color/white" />
-            <Button android:id="@+id/playButton4" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Play" />
+            <TextView android:id="@+id/hiragana4" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="え" android:textSize="30sp" />
+            <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="e" android:textSize="30sp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/playButton4" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="Play">
+            </com.google.android.material.button.MaterialButton>
         </LinearLayout>
 
         <!-- Row 5 -->
@@ -63,9 +70,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
-            <TextView android:id="@+id/hiragana5" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="お" android:textSize="30sp" android:textColor="@color/white" />
-            <TextView android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="o" android:textSize="30sp" android:textColor="@color/white" />
-            <Button android:id="@+id/playButton5" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Play" />
+            <TextView android:id="@+id/hiragana5" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="お" android:textSize="30sp" />
+            <TextView android:layout_width="0dp" android:layout_height="match_parent" android:layout_weight="1" android:text="o" android:textSize="30sp" />
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/playButton5" android:layout_width="wrap_content" android:layout_height="match_parent" android:text="Play">
+            </com.google.android.material.button.MaterialButton>
         </LinearLayout>
 
     </LinearLayout>

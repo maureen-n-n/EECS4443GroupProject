@@ -30,10 +30,6 @@ public class HiraganaItem implements Serializable {
         return correctInRow;
     }
 
-    public void incrementCorrectInRow() {
-        this.correctInRow++;
-    }
-
     public void resetCorrectInRow() { this.correctInRow = 0; }
 
     // Creates a deep copy
@@ -42,5 +38,10 @@ public class HiraganaItem implements Serializable {
     }
     public void decrementCorrectInRow() {
         this.correctInRow = Math.max(0, this.correctInRow - 1);
+    }
+    public void incrementCorrectInRow() {
+        if (correctInRow < 2) {
+            correctInRow++;
+        }
     }
 }
